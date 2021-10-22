@@ -84,16 +84,16 @@ export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
                   </MotionText>
                 </MotionBox>
               </MotionBox>
-              <MotionText
-                mt="1em"
-                borderTop="1px solid"
-                color={bg2}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              ></MotionText>
             </MotionBox>
+            <MotionText
+              
+              borderTop="1px solid"
+              color={bg2}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            ></MotionText>
 
             <MotionBox
               className="open"
