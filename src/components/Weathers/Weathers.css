@@ -1,25 +1,35 @@
-.test {
-  width: 500px;
-  height: 250px;
-  background-color: white;
-  margin: 60px 60px 60px 60px;
-  border-radius: 50px;
-  cursor: pointer;
-}
-.test2 {
-  width: 700px;
-  height: 500px;
-  background-color: white;
-  border-radius: 50px;
-  cursor: pointer;
-}
-.test2-container {
+.animation-container {
   position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
+}
+.weather-box {
+  width: 500px;
+  height: 250px;
+  margin: 60px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.weather-box-content {
+  width: 100%;
+  height: 100%;
+}
+.box-header {
+}
+.box-header img {
+  width: 85px;
+}
+.open {
+  position: absolute;
+  width: 500px;
+  height: 125px;
+  border-radius: 0px 0px 15px 15px;
+  z-index: -100;
 }

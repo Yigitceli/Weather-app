@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = "b1ebaef5af407fdc9de667b9eeffd94e";
+const apiKey = "b1792b4d7b4c4a929cc193457212110";
 
 export const getWeathers = async () => {
   let datas = [];
@@ -8,7 +8,7 @@ export const getWeathers = async () => {
   for (let index = 0; index < cities.length; index++) {
     const element = cities[index];
     const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${element}&appid=${apiKey}`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${element}&days=6&aqi=no&alerts=no`
     );
     datas.push(data);
   }

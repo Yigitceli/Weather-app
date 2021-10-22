@@ -9,7 +9,7 @@ import {
 
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bg = useColorModeValue("white", "blue.900");
+  const bg = useColorModeValue("white", "#1a202c");
   return (
     <Flex
       w="100%"
