@@ -2,16 +2,39 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Image } from "@chakra-ui/image";
 import { Box, Heading, Text } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Weathers/Weathers.css";
+
+const epochToDay = (dayEpoch) => {
+  const d = new Date(dayEpoch).getUTCDay();
+
+  switch (d) {
+    case 1:
+      return "Monday";
+    case 2:
+      return "Tuesday";
+    case 3:
+      return "Wednesday";
+    case 4:
+      return "Thursday";
+    case 5:
+      return "Friday";
+    case 6:
+      return "Saturday";
+    case 0:
+      return "Sunday";
+    default:
+      break;
+  }
+};
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 const MotionText = motion(Text);
 const MotionHeading = motion(Heading);
 
-export default function WeatherBoxAnimated({ index, weathers, pathname }) {
+export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
   const [city, setCity] = useState(
     weathers.find((item) => item.location.name == pathname)
   );
@@ -77,9 +100,18 @@ export default function WeatherBoxAnimated({ index, weathers, pathname }) {
               bg={bg}
               initial={{ y: -100 }}
               exit={{ y: -100 }}
-              animate={{ y: -20 }}
+              animate={{ y: -20, opacity: 1 }}
               transition={{ duration: 0.3 }}
-            ></MotionBox>
+            >
+              {city.forecast.forecastday.map((item, index) => (
+                <MotionBox m="0" key={index} w="100px" h="100px">
+                  <MotionBox d="flex" justifyContent="center">
+                    <MotionImage src={item.day.condition.icon} />
+                  </MotionBox>
+                  <MotionText color={bg2}>{epochToDay(item.date)}</MotionText>
+                </MotionBox>
+              ))}
+            </MotionBox>
           </MotionBox>
         </MotionBox>
       </Link>
