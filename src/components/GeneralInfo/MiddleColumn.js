@@ -16,7 +16,7 @@ export default function MiddleColumn() {
       bg={bg2}
       h="100%"
       mx="1em"
-      rounded="lg"
+      rounded="xl"
     ></MotionFlex>
   );
 }

@@ -11,6 +11,7 @@ const MotionText = motion(Text);
 
 export default function ImageSection({ data }) {
   const bg = useColorModeValue("#9fafca", "#1a202c");
+  const bg2 = useColorModeValue("#1a202c", "#9fafca");
 
   return (
     <MotionFlex
@@ -29,10 +30,13 @@ export default function ImageSection({ data }) {
       p={["0em", "1.5em", "2em", "2em", "2em"]}
       m={["0.5em", "1.5em", "2em", "2em", "2em"]}
       rounded="xl"
+      color={bg2}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
     >
-      <MotionFlex flexDirection='column' py='1.5em'>
+      <MotionFlex flexDirection="column" py="1.5em">
         <MotionImage boxSize={"150px"} src={data.current.condition.icon} />
-        <MotionText fontSize='xl'>{data.current.condition.text}</MotionText>
+        <MotionText fontSize="xl">{data.current.condition.text}</MotionText>
       </MotionFlex>
 
       <MotionFlex

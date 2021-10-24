@@ -16,6 +16,7 @@ export default function LeftColumn({ data }) {
       flexDirection="column"
       className="letColumn"
       mx="1em"
+      
     >
       <MotionFlex
         bg={bg2}
@@ -25,8 +26,9 @@ export default function LeftColumn({ data }) {
         p="0.5em"
         my="1em"
         flexDirection="column"
+        color={bg}
       >
-        <MotionHeading fontSize="2xl" textAlign="center" w="100%" color={bg}>
+        <MotionHeading fontSize="2xl" textAlign="center" w="100%">
           Gust Speed
         </MotionHeading>
         <MotionText py="0.5em" fontSize="2xl">
@@ -44,8 +46,9 @@ export default function LeftColumn({ data }) {
         my="1em"
         p="0.5em"
         flexDirection="column"
+        color={bg}
       >
-        <MotionHeading fontSize="2xl" textAlign="center" w="100%" color={bg}>
+        <MotionHeading fontSize="2xl" textAlign="center" w="100%">
           Pressure
         </MotionHeading>
         <MotionText py="0.5em" fontSize="2xl">

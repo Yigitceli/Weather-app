@@ -24,8 +24,12 @@ export default function GeneralInfo({ data }) {
       p="1em"
       m={["0.5em", "1.5em", "2em", "2em", "2em"]}
       rounded="xl"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
     >
-      <MotionHeading fontSize="4xl" py='0.5em'>General</MotionHeading>
+      <MotionHeading fontSize="4xl" py="0.5em">
+        General
+      </MotionHeading>
       <MotionFlex w="100%" h="100%">
         <LeftColumn data={data} />
         <MiddleColumn data={data} />
