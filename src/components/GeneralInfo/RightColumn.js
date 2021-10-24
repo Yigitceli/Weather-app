@@ -11,37 +11,35 @@ export default function RightColumn({ data }) {
   return (
     <MotionFlex
       className="rightColumn"
-      w="15%"
+      w={["100%", "100%", "100%", "100%", "15%"]}
       bg={bg}
       h="100%"
-      mx="1em"
       rounded="lg"
-      flexDirection="column"
-      
+      justifyContent='space-evenly'
     >
       <MotionFlex
-        w="100%"
+        w={["40%", "40%", "40%", "40%", "100%"]}
         bg={bg2}
         rounded="lg"
-        h="45%"
-        my="1em"
+        h={["110px"]}
         p="0.5em"
         flexDirection="column"
         justifyContent="space-evenly"
+        
         color={bg}
       >
         <MotionHeading fontSize="2xl">Humidity</MotionHeading>
         <MotionText fontSize="xl">{data.current.humidity} %</MotionText>
       </MotionFlex>
       <MotionFlex
-        w="100%"
+        w={["40%", "40%", "40%", "40%", "100%"]}
         bg={bg2}
         rounded="lg"
-        h="45%"
-        my="1em"
+        h={["110px"]}
         p="0.5em"
         flexDirection="column"
         justifyContent="space-evenly"
+        
         color={bg}
       >
         <MotionHeading fontSize="2xl">Cordinates</MotionHeading>

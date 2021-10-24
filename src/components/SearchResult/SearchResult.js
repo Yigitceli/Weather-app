@@ -73,7 +73,8 @@ export default function SearchResult({ location }) {
           <MotionFlex
             bg={bg2}
             w="100%"
-            my="2em"
+            alignItems='space-between'
+            justifyContent='center'
             rounded="xl"
             boxShadow="dark-lg"
             flexWrap="wrap"

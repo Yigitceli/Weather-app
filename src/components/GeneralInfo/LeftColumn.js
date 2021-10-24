@@ -12,15 +12,21 @@ export default function LeftColumn({ data }) {
   return (
     <MotionFlex
       h="100%"
-      w="15%"
-      flexDirection="column"
+      w={["100%", "100%", "100%", "100%", "15%"]}
+      flexDirection={["row", "row", "row", "row", "column"]}
       className="letColumn"
-      mx="1em"
-      
+      alignItems={["center", "center", "center", "center", "space-between"]}
+      justifyContent={[
+        "space-evenly",
+        "space-evenly",
+        "space-evenly",
+        "space-evenly",
+        "space-evenly",
+      ]}
     >
       <MotionFlex
         bg={bg2}
-        w="100%"
+        w={["45%", "40%", "40%", "40%", "100%"]}
         rounded="xl"
         h="45%"
         p="0.5em"
@@ -40,7 +46,7 @@ export default function LeftColumn({ data }) {
       </MotionFlex>
       <MotionFlex
         bg={bg2}
-        w="100%"
+        w={["45%", "40%", "40%", "40%", "100%"]}
         rounded="xl"
         h="45%"
         my="1em"

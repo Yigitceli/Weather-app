@@ -40,9 +40,10 @@ export default function Weathers({ match, location }) {
       {!isLoading && (
         <Flex flexWrap="wrap" justifyContent="center">
           {weathers.map((item, index) => (
-            <Link to={`/${item.location.name}`} key={index}>
+            <Link to={`/${item.location.name}`} key={index} p="2em">
               <MotionBox
                 className="weather-box"
+                w={["390px", "500px", "500px", "500px", "500px"]}
                 bg={bg}
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}

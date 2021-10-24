@@ -9,7 +9,6 @@ import "../Weathers/Weathers.css";
 const epochToDay = (dayEpoch) => {
   const d = new Date(dayEpoch).getUTCDay();
 
-  
   switch (d) {
     case 1:
       return "Monday";
@@ -44,76 +43,80 @@ export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
 
   return (
     <>
-      <Link to={"/"}>
-        <MotionBox className="animation-container">
-          <MotionBox bg={bg} className="weather-box" layoutId={pathname}>
-            <MotionBox className="weather-box-content">
-              <MotionBox
-                className="box-header"
-                d="flex"
-                justifyContent="space-around"
-                alignItems="center"
-              >
-                <MotionImage src={city.current.condition.icon} />
-                <MotionText color={bg2} fontSize="2xl">
-                  {city.current.condition.text}
+      <Link to={"/"} className="animation-container" w='100%'>
+        <MotionBox
+          bg={bg}
+          className="weather-box"
+          layoutId={pathname}
+          m="0"
+          w={["390px", "500px", "500px", "500px", "500px"]}
+        >
+          <MotionBox className="weather-box-content">
+            <MotionBox
+              className="box-header"
+              d="flex"
+              justifyContent="space-around"
+              alignItems="center"
+            >
+              <MotionImage src={city.current.condition.icon} />
+              <MotionText color={bg2} fontSize="2xl">
+                {city.current.condition.text}
+              </MotionText>
+            </MotionBox>
+            <MotionBox color={bg2}>
+              <MotionHeading fontSize="30px">
+                {city.location.name}
+              </MotionHeading>
+            </MotionBox>
+            <MotionBox
+              d="flex"
+              justifyContent="space-around"
+              alignItems="center"
+              py="1em"
+            >
+              <MotionBox color={bg2}>
+                <MotionText>Temperature</MotionText>
+                <MotionText>
+                  {city.current.temp_c}
+                  &#176;C
                 </MotionText>
               </MotionBox>
               <MotionBox color={bg2}>
-                <MotionHeading fontSize="30px">
-                  {city.location.name}
-                </MotionHeading>
-              </MotionBox>
-              <MotionBox
-                d="flex"
-                justifyContent="space-around"
-                alignItems="center"
-                py="1em"
-              >
-                <MotionBox color={bg2}>
-                  <MotionText>Temperature</MotionText>
-                  <MotionText>
-                    {city.current.temp_c}
-                    &#176;C
-                  </MotionText>
-                </MotionBox>
-                <MotionBox color={bg2}>
-                  <MotionText>Temperature Felt</MotionText>
-                  <MotionText>
-                    {city.current.feelslike_c}
-                    &#176;C
-                  </MotionText>
-                </MotionBox>
+                <MotionText>Temperature Felt</MotionText>
+                <MotionText>
+                  {city.current.feelslike_c}
+                  &#176;C
+                </MotionText>
               </MotionBox>
             </MotionBox>
-            <MotionText
-              
-              borderTop="1px solid"
-              color={bg2}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-            ></MotionText>
+          </MotionBox>
+          <MotionText
+            borderTop="1px solid"
+            color={bg2}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          ></MotionText>
 
-            <MotionBox
-              className="open"
-              bg={bg}
-              initial={{ y: -100 }}
-              exit={{ y: -100 }}
-              animate={{ y: -20, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              
-            >
-              {city.forecast.forecastday.map((item, index) => (
-                <MotionBox m="0" key={index} w="100px" h="100px">
-                  <MotionBox d="flex" justifyContent="center">
-                    <MotionImage src={item.day.condition.icon} />
-                  </MotionBox>
-                  <MotionText color={bg2}>{epochToDay(item.date)}</MotionText>
+          <MotionBox
+            className="open"
+            rounded="xl"
+            w={["390px", "500px", "500px", "500px", "500px"]}
+            bg={bg}
+            initial={{ y: -100 }}
+            exit={{ y: -100 }}
+            animate={{ y: -25, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {city.forecast.forecastday.map((item, index) => (
+              <MotionBox m="0" key={index} w="100px" h="100px">
+                <MotionBox d="flex" justifyContent="center">
+                  <MotionImage src={item.day.condition.icon} />
                 </MotionBox>
-              ))}
-            </MotionBox>
+                <MotionText color={bg2}>{epochToDay(item.date)}</MotionText>
+              </MotionBox>
+            ))}
           </MotionBox>
         </MotionBox>
       </Link>
