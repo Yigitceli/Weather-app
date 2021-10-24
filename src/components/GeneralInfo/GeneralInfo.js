@@ -21,11 +21,11 @@ export default function GeneralInfo({ data }) {
       boxShadow="dark-lg"
       flexDirection="column"
       alignItems="center"
-      p="2em"
+      p="1em"
       m={["0.5em", "1.5em", "2em", "2em", "2em"]}
       rounded="xl"
     >
-      <MotionHeading fontSize="4xl">General</MotionHeading>
+      <MotionHeading fontSize="4xl" py='0.5em'>General</MotionHeading>
       <MotionFlex w="100%" h="100%">
         <LeftColumn data={data} />
         <MiddleColumn data={data} />

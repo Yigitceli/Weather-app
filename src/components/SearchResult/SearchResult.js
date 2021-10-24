@@ -14,6 +14,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { motion } from "framer-motion";
 import { Image } from "@chakra-ui/image";
 import GeneralInfo from "../GeneralInfo/GeneralInfo";
+import ImageSection from "../ImageSection/ImageSection";
 
 const MotionFlex = motion(Flex);
 const MotionHeading = motion(Heading);
@@ -80,52 +81,7 @@ export default function SearchResult({ location }) {
             animate={{ y: 0, opacity: 1 }}
           >
             {/*IMAGE SECTIONStarts*/}
-            <MotionFlex
-              w={["100%", "100%", "100%", "100%", "20%"]}
-              bg={bg}
-              boxShadow="dark-lg"
-              flexDirection={["column", "row", "row", "row", "column"]}
-              alignItems="center"
-              p={["0em", "1.5em", "2em", "2em", "2em"]}
-              m={["0.5em", "1.5em", "2em", "2em", "2em"]}
-              rounded="xl"
-            >
-              <MotionImage
-                boxSize={"100px"}
-                src={data.current.condition.icon}
-              />
-              <MotionText py="0.5em" fontWeight="bolder" fontSize="xl">
-                {data.current.condition.text}
-              </MotionText>
-              <MotionFlex
-                flexDirection={["column", "row", "row", "row", "column"]}
-              >
-                <MotionFlex
-                  flexDirection="column"
-                  py="1em"
-                  px={["0.5em", "1em", "3em", "7em", "0em"]}
-                >
-                  <MotionHeading fontSize={["sml", "md", "lg", "xl", "2xl"]}>
-                    Temperature
-                  </MotionHeading>
-                  <MotionText py="0.5em">
-                    {data.current.temp_c}&#176;C
-                  </MotionText>
-                </MotionFlex>
-                <MotionFlex
-                  flexDirection="column"
-                  py="1em"
-                  px={["0.5em", "1em", "3em", "7em", "0em"]}
-                >
-                  <MotionHeading fontSize={["sml", "md", "lg", "xl", "2xl"]}>
-                    Temperature
-                  </MotionHeading>
-                  <MotionText py="0.5em">
-                    {data.current.feelslike_c}&#176;C
-                  </MotionText>
-                </MotionFlex>
-              </MotionFlex>
-            </MotionFlex>
+            <ImageSection data={data} />
 
             {/*IMAGE SECTION Ends*/}
             <GeneralInfo data={data} />
