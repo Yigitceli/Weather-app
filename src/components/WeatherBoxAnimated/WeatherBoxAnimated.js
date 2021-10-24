@@ -9,6 +9,7 @@ import "../Weathers/Weathers.css";
 const epochToDay = (dayEpoch) => {
   const d = new Date(dayEpoch).getUTCDay();
 
+  
   switch (d) {
     case 1:
       return "Monday";
@@ -102,6 +103,7 @@ export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
               exit={{ y: -100 }}
               animate={{ y: -20, opacity: 1 }}
               transition={{ duration: 0.3 }}
+              
             >
               {city.forecast.forecastday.map((item, index) => (
                 <MotionBox m="0" key={index} w="100px" h="100px">

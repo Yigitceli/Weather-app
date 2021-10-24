@@ -1,28 +1,48 @@
 import { SearchIcon } from "@chakra-ui/icons";
-import { Box, Center } from "@chakra-ui/layout";
+import { Center } from "@chakra-ui/layout";
 import {
+  FormControl,
   Input,
   InputGroup,
   InputLeftElement,
   useColorModeValue,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 export default function Searchbar() {
   const [searchValue, setSearchValue] = useState("");
-  const bg = useColorModeValue("#1a202c", "white");
-  const color = useColorModeValue("white", "#1a202c");
+  const bg = useColorModeValue("#9fafca", "#1a202c");
+  const bg2 = useColorModeValue("#1a202c", "#9fafca");
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    history.push(`/search/${searchValue}`);
+    setSearchValue("");
+  };
+
   return (
     <Center>
-      <InputGroup w={["100%", "80%", "60%", "40%"]}>
-        <InputLeftElement children={<SearchIcon />} style={{ zIndex: 0 }} />
-        <Input
-          variant="filled"
-          placeholder="City Name"
-          onChange={(e) => setSearchValue(e.target.value)}
-          value={searchValue}
-        />
-      </InputGroup>
+      <FormControl w={["100%", "80%", "60%", "40%"]} py="1em">
+        <form onSubmit={submitHandler}>
+          <InputGroup>
+            <InputLeftElement
+              children={<SearchIcon type="submit" color={"tomato"} />}
+              style={{ zIndex: 1 }}
+            />
+            <Input
+              variant="filled"
+              placeholder="Enter a City for Weather Data"
+              onChange={(e) => setSearchValue(e.target.value)}
+              value={searchValue}
+            />
+          </InputGroup>
+        </form>
+      </FormControl>
     </Center>
   );
 }

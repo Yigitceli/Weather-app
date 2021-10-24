@@ -14,3 +14,10 @@ export const getWeathers = async () => {
   }
   return datas;
 };
+
+export const getOneWeather = async (city) => {
+  const { data } = await axios.get(
+    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5&aqi=no&alerts=no`
+  );
+  return data;
+};

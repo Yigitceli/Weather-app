@@ -5,7 +5,7 @@ import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchWeathers } from "../../store/weatherSlice";
+import { fetchWeathers } from "../../store/weathersSlice";
 import WeatherBoxAnimated from "../WeatherBoxAnimated/WeatherBoxAnimated";
 import "./Weathers.css";
 import { useHistory, useLocation } from "react-router";
