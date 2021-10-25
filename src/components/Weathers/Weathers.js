@@ -55,6 +55,7 @@ export default function Weathers({ match, location }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
                 layoutId={item.location.name}
+                whileHover={{ scale: 1.2 }}
               >
                 <MotionBox className="weather-box-content">
                   <MotionBox
