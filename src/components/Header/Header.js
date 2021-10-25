@@ -12,8 +12,7 @@ export default function Header() {
   const bg = useColorModeValue("white", "#1a202c");
   return (
     <Flex
-      w="100%"
-      h="150px"
+      w="100%"      
       bg="tomato"
       justifyContent={"space-between"}
       alignItems="center"

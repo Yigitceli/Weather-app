@@ -49,7 +49,7 @@ export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
           className="weather-box"
           layoutId={pathname}
           m="0"
-          w={["390px", "500px", "500px", "500px", "500px"]}
+          w={["370px", "500px", "500px", "500px", "500px"]}
         >
           <MotionBox className="weather-box-content">
             <MotionBox
@@ -102,7 +102,7 @@ export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
           <MotionBox
             className="open"
             rounded="xl"
-            w={["390px", "500px", "500px", "500px", "500px"]}
+            w={["370px", "500px", "500px", "500px", "500px"]}
             bg={bg}
             initial={{ y: -100 }}
             exit={{ y: -100 }}

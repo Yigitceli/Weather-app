@@ -1,27 +1,15 @@
-import {
-  AbsoluteCenter,
-  Box,
-  Center,
-  Flex,
-  Heading,
-  Text,
-} from "@chakra-ui/layout";
+import { Flex, Heading } from "@chakra-ui/layout";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOneWeather } from "../../store/oneWeatcherSlice";
 import TwinSpin from "react-cssfx-loading/lib/TwinSpin";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { motion } from "framer-motion";
-import { Image } from "@chakra-ui/image";
-import GeneralInfo from "../GeneralInfo/GeneralInfo";
-import ImageSection from "../ImageSection/ImageSection";
+import TopRow from "../Rows/TopRow";
+import BottomRow from "../Rows/BottomRow";
 
 const MotionFlex = motion(Flex);
 const MotionHeading = motion(Heading);
-const MotionImage = motion(Image);
-const MotionCenter = motion(Center);
-const MotionText = motion(Text);
-const MotionBox = motion(Box);
 
 export default function SearchResult({ location }) {
   const city = location.pathname.split("/")[2];
@@ -43,60 +31,31 @@ export default function SearchResult({ location }) {
   }, [data]);
 
   return (
-    <MotionFlex
-      w="100%"
-      h="100%"
-      p={["0em", "1.5em", "2em", "2em", "2em"]}
-      flexDirection="column"
-    >
+    <MotionFlex w="100%" minH="120vh" flexDirection="column">
       {isLoading ? (
         <MotionFlex
-          w={["100%"]}
-          h="100%"
+          w="100%"
+          minH="75vh"
           justifyContent="center"
           alignItems="center"
         >
           <TwinSpin width="10em" height="10em" color="tomato" />
         </MotionFlex>
       ) : (
-        <MotionFlex flexDirection="column" h="100%">
-          <MotionHeading
-            color={bg2}
-            w="100%"
-            textAlign="center"
-            fontSize="5xl"
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          >
+        <>
+          <MotionHeading textAlign="center" w="100%" fontSize="5xl">
             {data.location.name}
           </MotionHeading>
           <MotionFlex
-            bg={bg2}
-            w="100%"
-            alignItems='space-between'
-            justifyContent='center'
-            rounded="xl"
-            boxShadow="dark-lg"
-            flexWrap="wrap"
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            py="2em"
+            flexDirection="column"
+            justifyContent="space-evenly"
+            minH="140vh"
           >
-            {/*IMAGE SECTIONStarts*/}
-            <ImageSection data={data} />
-
-            {/*IMAGE SECTION Ends*/}
-            <GeneralInfo data={data} />
+            <TopRow data={data} bg={bg} bg2={bg2} />
+            <BottomRow data={data} bg={bg} bg2={bg2} />
           </MotionFlex>
-          {/*<MotionFlex
-            bg={bg2}
-            w="100%"
-            my="2em"
-            rounded="xl"
-            boxShadow="dark-lg"
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-          ></MotionFlex>*/}
-        </MotionFlex>
+        </>
       )}
     </MotionFlex>
   );

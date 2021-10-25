@@ -9,6 +9,7 @@ import { fetchWeathers } from "../../store/weathersSlice";
 import WeatherBoxAnimated from "../WeatherBoxAnimated/WeatherBoxAnimated";
 import "./Weathers.css";
 import { useHistory, useLocation } from "react-router";
+import { TwinSpin } from "react-cssfx-loading/lib";
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
@@ -36,14 +37,18 @@ export default function Weathers({ match, location }) {
   }, [history]);
 
   return (
-    <Flex justifyContent="center">
-      {!isLoading && (
+    <Flex justifyContent="center" bg={bg2}>
+      {isLoading ? (
+        <Flex w="100%" h="75vh" justifyContent="center" alignItems="center">
+          <TwinSpin width="10em" height="10em" color="tomato" />
+        </Flex>
+      ) : (
         <Flex flexWrap="wrap" justifyContent="center">
           {weathers.map((item, index) => (
             <Link to={`/${item.location.name}`} key={index} p="2em">
               <MotionBox
                 className="weather-box"
-                w={["390px", "500px", "500px", "500px", "500px"]}
+                w={["370px", "500px", "500px", "500px", "500px"]}
                 bg={bg}
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}
