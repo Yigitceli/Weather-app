@@ -15,7 +15,7 @@ export default function SearchResult({ location }) {
   const city = location.pathname.split("/")[2];
 
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((state) => state.oneWeather);
+  const { data, isLoading } = useSelector((state) => state.oneWeather);
   const bg = useColorModeValue("#9fafca", "#1a202c");
   const bg2 = useColorModeValue("#1a202c", "#9fafca");
 

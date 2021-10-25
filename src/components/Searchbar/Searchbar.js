@@ -5,18 +5,16 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  useColorModeValue,
+
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
 export default function Searchbar() {
   const [searchValue, setSearchValue] = useState("");
-  const bg = useColorModeValue("#9fafca", "#1a202c");
-  const bg2 = useColorModeValue("#1a202c", "#9fafca");
 
-  const dispatch = useDispatch();
+
+
   const history = useHistory();
 
   const submitHandler = (e) => {

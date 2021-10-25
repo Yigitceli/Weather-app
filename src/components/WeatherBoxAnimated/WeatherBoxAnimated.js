@@ -2,7 +2,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Image } from "@chakra-ui/image";
 import { Box, Heading, Text } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Weathers/Weathers.css";
 
@@ -35,8 +35,8 @@ const MotionText = motion(Text);
 const MotionHeading = motion(Heading);
 
 export default function WeatherBoxAnimated({ weathers, pathname, setIsOpen }) {
-  const [city, setCity] = useState(
-    weathers.find((item) => item.location.name == pathname)
+  const [city] = useState(
+    weathers.find((item) => item.location.name === pathname)
   );
   const bg = useColorModeValue("#1a202c", "#9fafca");
   const bg2 = useColorModeValue("#9fafca", "#1a202c");

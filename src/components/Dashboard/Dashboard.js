@@ -1,5 +1,5 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, Flex } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
 import { AnimateSharedLayout } from "framer-motion";
 import React from "react";
 import Searchbar from "../Searchbar/Searchbar";

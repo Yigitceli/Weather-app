@@ -1,8 +1,8 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Image } from "@chakra-ui/image";
-import { Flex, Box, Heading, Text, Divider } from "@chakra-ui/layout";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { Flex, Box, Heading, Text } from "@chakra-ui/layout";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchWeathers } from "../../store/weathersSlice";
