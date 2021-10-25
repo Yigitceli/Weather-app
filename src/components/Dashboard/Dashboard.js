@@ -1,6 +1,6 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box } from "@chakra-ui/layout";
-import {  AnimateSharedLayout } from "framer-motion";
+import { AnimateSharedLayout } from "framer-motion";
 import React from "react";
 import Searchbar from "../Searchbar/Searchbar";
 import Weathers from "../Weathers/Weathers";
@@ -15,6 +15,7 @@ export default function Dashboard() {
       bg={bg}
       w="100%"
       h="100%"
+      
     >
       <Router>
         <Searchbar />

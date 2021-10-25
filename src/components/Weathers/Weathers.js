@@ -38,24 +38,26 @@ export default function Weathers({ match, location }) {
   }, [history]);
 
   return (
-    <Flex justifyContent="center" bg={bg2}>
+    <Flex justifyContent="center" bg={bg2} w="100%">
       {isLoading ? (
         <Flex w="100%" h="75vh" justifyContent="center" alignItems="center">
           <TwinSpin width="10em" height="10em" color="tomato" />
         </Flex>
       ) : (
-        <MotionFlex flexWrap="wrap" justifyContent="center">
+        <MotionFlex flexWrap="wrap" justifyContent="center" className="TEST">
           {weathers.map((item, index) => (
-            <Link to={`/${item.location.name}`} key={index} p="2em">
+            <Link to={`/${item.location.name}`} key={index}>
               <MotionBox
                 className="weather-box"
-                w={["350px", "500px", "500px", "500px", "500px"]}
+                w={["370px", "500px", "500px", "500px", "500px"]}
                 bg={bg}
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
                 layoutId={item.location.name}
                 whileHover={{ scale: 1.2 }}
+                my="60px"
+                mx={["0px", "0px", "60px", "60px", "60px"]}
               >
                 <MotionBox className="weather-box-content">
                   <MotionBox
