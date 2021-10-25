@@ -49,7 +49,7 @@ export default function Weathers({ match, location }) {
             <Link to={`/${item.location.name}`} key={index} p="2em">
               <MotionBox
                 className="weather-box"
-                w={["370px", "500px", "500px", "500px", "500px"]}
+                w={["350px", "500px", "500px", "500px", "500px"]}
                 bg={bg}
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}
