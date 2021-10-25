@@ -43,7 +43,13 @@ export default function SearchResult({ location }) {
         </MotionFlex>
       ) : (
         <>
-          <MotionHeading textAlign="center" w="100%" fontSize="5xl">
+          <MotionHeading
+            textAlign="center"
+            w="100%"
+            fontSize="5xl"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
             {data.location.name}
           </MotionHeading>
           <MotionFlex

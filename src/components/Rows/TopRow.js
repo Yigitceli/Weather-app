@@ -30,6 +30,8 @@ export default function TopRow({ data, bg, bg2 }) {
       alignItems="space-evenly"
       justifyContent="space-evenly"
       wrap="wrap"
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
     >
       <MotionFlex
         w="400px"

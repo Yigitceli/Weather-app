@@ -34,14 +34,16 @@ const epochToDay = (dayEpoch) => {
 export default function BottomRow({ data, bg, bg2 }) {
   return (
     <MotionFlex
-      w="100%"      
-      minH="70vh"            
+      w="100%"
+      minH="70vh"
       bg={bg2}
       color={bg}
       flexDirection="column"
       rounded="xl"
       p="1.5em"
-      mt='2em'
+      mt="2em"
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
     >
       <MotionHeading textAlign="center">Forecast</MotionHeading>
       <MotionFlex
@@ -59,8 +61,11 @@ export default function BottomRow({ data, bg, bg2 }) {
             flexDirection="column"
             className="imageSection"
             color={bg2}
-            py='0.5em'
-            mt='2em'
+            py="0.5em"
+            mt="2em"
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{delay:0.2}}
           >
             <MotionFlex flexDirection="column" alignItems="center">
               <MotionHeading>{epochToDay(item.date)}</MotionHeading>
