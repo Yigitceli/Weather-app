@@ -15,6 +15,7 @@ const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 const MotionText = motion(Text);
 const MotionHeading = motion(Heading);
+const MotionFlex = motion(Flex);
 
 export default function Weathers({ match, location }) {
   const { pathname } = useLocation();
@@ -43,7 +44,7 @@ export default function Weathers({ match, location }) {
           <TwinSpin width="10em" height="10em" color="tomato" />
         </Flex>
       ) : (
-        <Flex flexWrap="wrap" justifyContent="center">
+        <MotionFlex flexWrap="wrap" justifyContent="center">
           {weathers.map((item, index) => (
             <Link to={`/${item.location.name}`} key={index} p="2em">
               <MotionBox
@@ -106,7 +107,7 @@ export default function Weathers({ match, location }) {
               </MotionBox>
             </Link>
           ))}
-        </Flex>
+        </MotionFlex>
       )}
 
       {!isLoading && (

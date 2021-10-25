@@ -12,15 +12,15 @@ export default function Header() {
   const bg = useColorModeValue("white", "#1a202c");
   return (
     <Flex
-      w="100%"      
+      w="100%"
       bg="tomato"
-      justifyContent={"space-between"}
+      justifyContent="space-between"
       alignItems="center"
       p="5"
     >
       <Text size="lg" fontSize="50px">
         Weather App
-      </Text>
+      </Text>     
 
       <IconButton
         bg={bg}
